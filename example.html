@@ -1,0 +1,50 @@
+<html>
+
+<head>
+
+<meta head="viewport" content="width=device-width, initial-scale=1" />
+
+<style type="text/css">
+
+body {
+	width: 600px;
+	margin: 10px auto;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<script language="javascript" src="./modalwindow.js"></script>
+
+<script language="javascript">
+
+let manager = new MessageManager();
+
+function messageFromForm() {
+	if (manager.hasMessage("displayForm")) {
+		manager.editMessage("displayForm", document.getElementById("titleInput").value, document.getElementById("contentInput").value);
+	} else {
+		manager.createMessage("displayForm", document.getElementById("titleInput").value, document.getElementById("contentInput").value);
+	}
+	manager.showMessage("displayForm");
+}
+
+</script>
+
+<form>
+
+Title: <input type="text" id="titleInput" /> <br />
+
+Content: <br />
+<textarea id="contentInput" style="width: 500px; height: 250px;"></textarea> <br /><br />
+
+<input type="button" onclick="messageFromForm()" value="Create and view message" />
+
+</form>
+
+</body>
+
+</html>
